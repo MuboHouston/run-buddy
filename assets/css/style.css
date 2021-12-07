@@ -68,3 +68,60 @@ footer div {
 footer a {
     color: #024e76;
 }
+
+section {
+    padding: 60px;
+}
+
+.hero {
+    background-image: url("../images/hero-bg.jpg");
+    height: 600px;
+    /*This shrinks the image so that parts of it won't get clipped*/
+    background-size: cover;
+    /*This sets the initial position of the image*/
+    background-position: center;
+    position: relative;
+}
+
+.hero-form {
+    color: #024e76;
+    width: 500px;
+    padding: 20px;
+    background-color: #fce138;
+    border: 3px solid #024e76;
+    position: absolute;
+    bottom: 120px;
+    right: 140px;
+}
+
+.hero-form h3 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.hero-form p {
+    margin: 5px 0 15px 0;
+}
+
+.form-input {
+    font-size: 16px;
+    border: 1px solid #024e76;
+    display: block;
+    padding: 7px 15px;
+    color: #024e76;
+    width: 100%;
+    margin bottom: 15 px;
+}
+
+/*This helps the user not misinterpret which selection is for which answer*/
+.hero-form label {
+    margin: 0 5px;
+}
+
+.hero-form button {
+    padding: 10px 20px;
+    background-color: #024e76;
+    color:#fce138;
+    border: none;
+    font-size: 16px;
+}
