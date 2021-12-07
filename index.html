@@ -31,6 +31,35 @@
 
     <!--hero/jumbotron AKA The largeimage at the top-->
     <section>
+        <div>
+            <h3>Get Started Today</h3>
+            <p>Fill out this form and one of our trainers will schedule a consult.</p>
+            <!--add form element-->
+            <form>
+            <!--The value for the "for" attribute must match the value of the id attribute of the "input" element to link the two attributes-->
+            <label for="name">Enter full name:</label>
+            <input type="text" placeholder="Your Name" name="name" id="name" />
+            <label for="email">Enter email address:</label>
+            <input type="text" placeholder="Email Address" name="email" id="email" />
+            <label for="phone">Enter a telephone number:</label>
+            <input type="text" placeholder="Phone Number" name="phone" id="phone" />
+            <p>
+                Have you worked out with a trainer before?
+                <!--The radio button elements much have the same "name" attribute in order to be assoicated with the same radio group-->
+                <input type="radio" name="trainer-confim" id="trainer-yes" />
+                <label for="trainer-yes">Yes</label>
+                <input type="radio" name="trainer-confirm" id="trainer-no" />
+                <label for="trainer-no">No</label>
+            </p>
+            <p>
+                <label for="checkbox">
+                    I acknowledge that I am at least 18 years of age.
+                </label>
+                <input type="checkbox" name="age-confirm" id="checkbox" />
+            </p>
+                <button type="submit">Get running!</button>
+            </form>
+        </div>
     </section>
 
     <!-- "what we do" secion-->
@@ -56,6 +85,10 @@
 </body>
 
 <footer>
-    <h2>&#10084; Made with love by Run Buddy</h2>
+    <h2>❤️ Made with love by Run Buddy</h2>
+    <div>
+        <a href="#">Read Our Privacy Policy</a><br />
+        &copy; 2020 Run Buddy, Inc.
+    </div>
 </footer>
 </html>
