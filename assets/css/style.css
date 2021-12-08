@@ -84,11 +84,11 @@ section {
 }
 
 .hero-form {
-    color: #024e76;
-    width: 500px;
-    padding: 20px;
-    background-color: #fce138;
     border: 3px solid #024e76;
+    background-color: #fce138;
+    padding: 20px;
+    width: 500px;
+    color: #024e76;
     position: absolute;
     bottom: 120px;
     right: 140px;
@@ -110,7 +110,7 @@ section {
     padding: 7px 15px;
     color: #024e76;
     width: 100%;
-    margin bottom: 15 px;
+    margin-bottom: 15px;
 }
 
 /*This helps the user not misinterpret which selection is for which answer*/
@@ -124,4 +124,16 @@ section {
     color:#fce138;
     border: none;
     font-size: 16px;
+}
+
+#what-we-do {
+    text-align: center;
+    color: #39a6b2;
+    font-size: small;
+    line-height: 1.5;
+}
+
+h2 {
+    color: navy;
+    font-size: 32px;
 }
