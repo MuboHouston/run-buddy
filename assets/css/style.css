@@ -126,14 +126,25 @@ section {
     font-size: 16px;
 }
 
-#what-we-do {
+.intro {
     text-align: center;
-    color: #39a6b2;
-    font-size: small;
-    line-height: 1.5;
 }
 
-h2 {
-    color: navy;
-    font-size: 32px;
+.intro h2 {
+    font-size: 55px;
+    color: #024e76;
+    margin-bottom: 35px;
+    padding: 0 100px 20px 100px;
+    border-bottom: 3px solid #fce138;
+    /*This shortens the border/line under h2 and makes it as long asthe size of thee h2 element (including padding)*/
+    display: inline-block;
+}
+
+.intro p { 
+    line-height: 1.7;
+    color: #39a6b2;
+    width: 80%;
+    font-size: 20px;
+    /*without setting right and left margins to auto, text will not be centered due to width being less than 100%*/
+    margin: 0 auto;
 }
