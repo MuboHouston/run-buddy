@@ -76,7 +76,6 @@ section {
 .hero {
     background-image: url("../images/hero-bg.jpg");
     height: 600px;
-    /*This shrinks the image so that parts of it won't get clipped*/
     background-size: cover;
     /*This sets the initial position of the image*/
     background-position: center;
