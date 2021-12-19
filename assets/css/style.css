@@ -147,13 +147,14 @@ section {
 }
 /*Hero section end*/
 
-.section-title {font-size: 55px;
+.section-title {
+    font-size: 55px;
     color: #024e76;
-    margin-bottom: 35px;
-    padding: 0 100px 20px 100px;
     border-bottom: 3px solid;
-    /*This shortens the border/line under h2 and makes it as long asthe size of thee h2 element (including padding)*/
-    display: inline-block;
+    padding-bottom: 20px;
+    text-align: center;
+    margin: 0 auto 35px auto;
+    width: 50%;
 }
 
 .primary-border {
@@ -164,10 +165,6 @@ section {
     border-color: #39a6b2;
 }
 
-.intro {
-    text-align: center;
-}
-
 .intro p { 
     line-height: 1.7;
     color: #39a6b2;
@@ -175,11 +172,11 @@ section {
     font-size: 20px;
     /*without setting right and left margins to auto, text will not be centered due to width being less than 100%*/
     margin: 0 auto;
+    text-align: center;
 }
 
 .steps {
     background-color: #fce138;
-    text-align: center;
 }
 
 .steps div { 
@@ -204,10 +201,6 @@ section {
 
 .steps span {
     font-size: 38px;
-}
-
-.trainers {
-    text-align: center;
 }
 
 .trainer {
@@ -237,6 +230,10 @@ section {
     text-align: right;
 }
 
+.flex-row {
+display: flex;
+}
+
 .trainer-bio h3 {
     font-size: 32px;
     margin-bottom: 8px;
@@ -255,7 +252,6 @@ section {
 
 .contact {
     background: #024e76;
-    text-align: center;
 }
 
 .contact h2 {
