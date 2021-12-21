@@ -1,3 +1,10 @@
+/*Custom properties to be global, meaning that any element or class selector can use these*/
+:root {
+    --primary-color: #fce138;
+    --secondary-color: #024e76;
+    --tertiary-color: #39a6b2;  
+}
+
 /* The * selector selects all html elements (universal selector) and applies styles to them */
 * {
     margin: 0;
@@ -7,54 +14,82 @@
 }
 
 body {
-    color: #39a6b2;
+    color: var(--tertiary-color);
     font-family: Helvetica, Arial, sans-serif;
 }
 
 header {
     padding: 20px 35px;
-    background-color: #39a6b2;
+    background-color: var(--tertiary-color);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /*This is a vender prefix to the sticky header for Safari users. It allows the sticky header to be supported by all browsers, including Safari*/
+    position: -webkit-sticky;   
+    /*This makes the header behave relatively until the viewport scrolls past it. Then the elemnet will switch to fixed and remain visible even as the user scrolls farther down the page*/
+    /*Always list the prefix verison first*/
+    position: sticky;
+    /*This tells the browser where to "stick" the element- the very top of the viewport*/
+    top: 0;
+    background-image: url("../images/hero-bg.jpg");
+    background-size: cover;
+    /*This allows the background image of the header and hero sections to be in the same place*/
+    background-attachment: fixed;
+    background-position: 80%;
+    z-index: 9999;
 }
 
 header h1 {
     font-weight: bold;
     font-size: 36px;
-    color: #fce138;
+    color: var(--primary-color);
     margin: 0;
-    /* the code below, prevents the content from taking 100% of the line. It only takes up the space needed to display the content*/
-    display: inline;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 header a {
     /*setting this declaration to none, clears the element's default styles*/
     text-decoration: none;
-    color: #fce138;
+    color: var(--primary-color);
 }
 
 header nav {
-    float: right;
     margin: 7px 0;
 }
 
-header nav ul li {
-    display: inline;
+header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
 }
 
 header nav ul li a {
-    margin: 0 30px;
+    padding: 10px 15px;
     font-weight: lighter;
-    font-size: 22px;
+    font-size: 1.5vw;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+header nav ul li a:hover {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    border-radius: 15px;
+    text-shadow: none;
 }
 
 footer {
-    background: #fce138;
+    background: var(--primary-color);
     width: 100%;
     padding: 40px 35px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 footer h2 {
-    display: inline;
-    color: #024e76;
+    color: var(--secondary-color);
     font-size: 30px;
     margin: 0;
 }
@@ -62,35 +97,55 @@ footer h2 {
 footer div {
     float: right;
     line-height: 1.5;
-    text-align: right;
 }
 
 footer a {
-    color: #024e76;
+    color: var(--secondary-color);
 }
 
 section {
     padding: 60px;
 }
 
+/*Hero section* start*/
 .hero {
-    background-image: url("../images/hero-bg.jpg");
-    height: 600px;
+    background-image: url("../images/hero-bg.jpg");;
     background-size: cover;
     /*This sets the initial position of the image*/
     background-position: center;
-    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background-attachment: fixed;
+    background-position: 80%;
+}
+
+.hero-cta {
+    width: 35%;
+    text-align: right;
+    margin: 3.5%;
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.2;
+}
+
+.hero-cta h2 {
+    font-style: italic;
+    font-size: 55px;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .hero-form {
-    border: 3px solid #024e76;
-    background-color: #fce138;
+    border: 3px solid var(--secondary-color);
+    background-color: rgba(252, 225, 56, 0.8);
     padding: 20px;
-    width: 500px;
-    color: #024e76;
-    position: absolute;
-    bottom: 120px;
-    right: 140px;
+    color: var(--secondary-color);
+    width: 40%;
+    margin: 3.5%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
 }
 
 .hero-form h3 {
@@ -104,12 +159,89 @@ section {
 
 .form-input {
     font-size: 16px;
-    border: 1px solid #024e76;
+    border: 1px solid var(--secondary-color);
     display: block;
     padding: 7px 15px;
-    color: #024e76;
+    color: var(--secondary-color);
     width: 100%;
     margin-bottom: 15px;
+    /*this adds a rounded corner to all four corners of the elemnent*/
+    border-radius: 10px;
+    background-color: rgba(255,255,255, 0.75);
+}
+
+.form-input:focus {
+    background-color: rgba(255,255,255,1);
+    /*To remove the default border*/
+    outline: none;
+}
+
+.checkbox-wrapper input, .radio-wrapper input {
+    /*This code made all of the imput invisible*/
+    opacity: 0;
+}
+
+.checkbox-wrapper label, .radio-wrapper label {
+    /*These codes creates room for the custom radio buttons and checkbox*/
+    position: relative;
+    left: 10px;
+    margin: 10px;
+    line-height: 1.6;
+}
+
+.checkbox-wrapper label::before, .radio-wrapper label::before {
+    /*These codes customizes the new radio buttons and checkbox. It is positioned on top of the now invisible defalut boxes*/
+    content: "";
+    height: 20px;
+    width: 20px;
+    background: rgba(255,255,255, 0.75);
+    border: 1px solid var(--secondary-color);
+    position: absolute;
+    top: -4px;
+    left: -30px;
+}
+
+.radio-wrapper label::before {
+    /*This makes the raido buttons round*/
+    border-radius: 50px;
+}
+
+.radio-wrapper label::after {
+    /*This creates the color circle for the radio button*/
+    content: "";
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--secondary-color);
+    position: absolute;
+    left: -29px;
+    top: -3px;
+    /*This replaces the solid radio button with a gradient*/
+    background-image: radial-gradient(circle, var(--tertiary-color), var(--secondary-color));
+}
+
+.checkbox-wrapper label::after {
+    /*This creates a checkmark for the checkbox- the checkmark is not positioned correctly*/
+    content: "";
+    height: 6px;
+    width: 14px;
+    border-left: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    position: absolute;
+    left: -26px;
+    top: 1px;
+    /*This rotates the checkmark to the correct position*/
+    transform: rotate(-58deg);
+}
+
+/*Sibling Selectors*/
+/*if the radio buttons or checkboxes are in their default state, they'll have no ::after pseudo content*/
+.checkbox-wrapper input + label::after, .radio-wrapper input + label::after {
+    content: none;
+}
+ /*as soon as an input becomes :checked, the content and all of the other styles defined earlier will take effect*/
+.checkbox-wrapper input:checked + label::after, .radio-wrapper input:checked + label::after {
+    content: "";
 }
 
 /*This helps the user not misinterpret which selection is for which answer*/
@@ -119,92 +251,131 @@ section {
 
 .hero-form button {
     padding: 10px 20px;
-    background-color: #024e76;
-    color:#fce138;
+    background-color: var(--secondary-color);
+    color:var(--primary-color);
     border: none;
     font-size: 16px;
+    /*this adds a rounded corner to all four corners of the elemnent*/
+    border-radius: 10px;
 }
 
-.section-title {font-size: 55px;
-    color: #024e76;
-    margin-bottom: 35px;
-    padding: 0 100px 20px 100px;
+.hero-form button:hover {
+    background-color: var(--tertiary-color);
+}
+/*Hero section end*/
+
+/*Step section start*/
+.section-title {
+    font-size: 48px;
+    color: var(--secondary-color);
     border-bottom: 3px solid;
-    /*This shortens the border/line under h2 and makes it as long asthe size of thee h2 element (including padding)*/
-    display: inline-block;
+    padding-bottom: 20px;
+    text-align: center;
+    margin: 0 auto 35px auto;
+    width: 50%;
 }
 
 .primary-border {
-    border-color: #fce138;
+    border-color: var(--primary-color);
 }
 
 .secondary-border {
-    border-color: #39a6b2;
-}
-
-.intro {
-    text-align: center;
+    border-color: var(--tertiary-color);
 }
 
 .intro p { 
     line-height: 1.7;
-    color: #39a6b2;
+    color: var(--tertiary-color);
     width: 80%;
     font-size: 20px;
     /*without setting right and left margins to auto, text will not be centered due to width being less than 100%*/
     margin: 0 auto;
+    text-align: center;
 }
 
 .steps {
-    background-color: #fce138;
-    text-align: center;
+    background-color: var(--primary-color);
 }
 
-.steps div { 
-    margin: 80px;
+.step {
+    margin: 50px auto;
+    padding-bottom: 50px;
+    width: 80%;
+    border-bottom: 1px solid var(--tertiary-color);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.steps img {
-    width: 15%;
-    margin: 10px 0;
+/*This selector means that the CSS declaration will only apply to an element with class step that's also the last elemnet in whatever container it's in*/
+.step:last-child {
+    border-bottom: none;
 }
 
-.steps h3 {
-    color: #024e76;
+.step h3 {
+    color: var(--secondary-color);
     font-size: 46px;
-    margin-top: 10px;
+    flex: 1 30%;
 }
 
-.steps p {
-    color: #39a6b2;
-    font-size: 23px;
+.step-info {
+    flex: 2 70%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
-.steps span {
-    font-size: 38px;
+.step-img {
+    flex: 1 12%;
+    margin-right: 20px;
 }
 
+.step-img img {
+    /*This limits the img width to be whatever its container is. This allows Microsoft Edge users to have the same user experience*/
+    max-width: 100%;
+}
+
+.step-text {
+    /*.step-text will be alloted 12x more unused space than .step-img, but .step-img at the very least must be 12% of the width of .step-info*/
+    flex: 12;
+}
+
+.step-text h4 {
+    font-size: 26px;
+    line-height: 1.5;
+    color: var(--secondary-color);
+}
+
+.step-text p {
+    color: var(--tertiary-color);
+    font-size: 18px;
+}
+/*Step section end*/
+
+/*Trainers section start*/
 .trainers {
-    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .trainer {
-    width: 900px;
-    margin: 0 auto 30px auto;
-    background: #024e76;
-    color: #fce138;
-    overflow: auto;
+    margin: 20px;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    flex: 1;
 }
 
 .trainer img {
-    width: 35%;
-    float: left;
+    width: 100%;
 }
 
 .trainer-bio {
-    padding: 35px;
-    float: left;
-    width: 65%;
+    padding: 25px;
+    line-height: 1.3;
 }
 
 .text-left {
@@ -215,34 +386,44 @@ section {
     text-align: right;
 }
 
+.flex-row {
+display: flex;
+}
+
 .trainer-bio h3 {
-    font-size: 32px;
-    margin-bottom: 8px;
+    font-size: 28px;
 }
 
 .trainer-bio h4 {
-    font-size: 26px;
+    font-size: 22px;
     font-weight: lighter;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 .trainer-bio p {
     font-size: 17px;
-    line-height: 1.3;
 }
+/*Trainers section end*/
 
+/*Reach out section start*/
 .contact {
-    background: #024e76;
-    text-align: center;
+    background: var(--secondary-color);
 }
 
 .contact h2 {
-    color: #fce138;
+    color: var(--primary-color);
 }
 
-.contact-info iframe{
-    width: 400px;
-    height: 400px;
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* * selector us saying "select all elements that are the direct children of .contact-info. > symbol means it's looking specifically for direct children of the element listed first*/
+.contact-info > * {
+    flex: 1;
+    margin: 15px;
 }
 
 .contact-info div {
@@ -256,16 +437,167 @@ section {
 
 .contact-info h3 {
     font-size: 32px;
-    color: #fce138;
+    color: var(--primary-color);
 }
 
 .contact-info p, .contact-info address{
     margin: 20px 0;
     line-height: 1.5;
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
 }
 
 .contact-info a {
-    color: #fce138;
+    color: var(--primary-color);
+}
+
+.contact-form input, .contact-form textarea {
+    border: 1px solid var(--secondary-color);
+    display: block;
+    padding: 7px 15px;
+    font-size: 16px;
+    color: var(--secondary-color);
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    /*this adds a rounded corner to all four corners of the elemnent*/
+    border-radius: 10px;
+    background-color: rgba(255,255,255, 0.75);
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    background-color: rgba(255,255,255, 1);
+    outline: none;
+}
+
+.contact-form button {
+    width: 100%;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 15px 0;
+    font-size: 16px;
+    /*this adds a rounded corner to all four corners of the elemnent*/
+    border-radius: 10px;
+}
+
+.contact-form button:hover {
+    color: var(--primary-color);
+    background: var(--tertiary-color);
+}
+
+.contact-info iframe{
+    width: 400px;
+    height: 400px;
+}
+/*Reach out section end*/
+
+/*MEDIA QUERY FOR SMALLER DESKTOP SCREENS AND SMALLER*/
+@media screen and (max-width: 980px) {
+   header {
+       padding-bottom: 0;
+       justify-content: center;
+       position: relative;
+   }
+   
+   header h1 {
+       width: 100%;
+       text-align: center;
+   }
+   
+   header nav ul {
+       margin-top: 20px;
+       width: 100%;
+       justify-content: center;
+   }
+
+   header nav ul li a {
+       font-size: 20px;
+   }
+
+   footer h2, footer div {
+       text-align: center;
+       width: 100%;
+   }
+
+   .hero-cta, .hero-form {
+       width: 100%;
+   }
+
+   .hero-cta {
+       text-align: center;
+   }
+
+   .section-title {
+       width: 80%;
+   }
+
+   .trainer {
+       flex: 0 70%;
+   }
+
+   .contact-info iframe {
+       flex: 1 100%;
+   }
+}
+
+/*MEDIA QUERY FOR TABLETS AND SMALLER*/
+@media screen and (max-width: 768px) {
+   section {
+       padding: 30px 15px;
+   }
+
+   .step h3 {
+       flex: 1 100%;
+       text-align: center;
+   }
+
+   .step-info {
+       flex: 2 100%;
+       text-align: center;
+       justify-content: center;
+    }
+
+    .step-img {
+        flex: 0 32%;
+        margin-right: 0;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .step-text {
+        flex: 100%;
+    }
+}
+
+/*MEDIA QUERY FOR MOBILE PHONES AND SMALLER*/
+@media screen and (max-width: 575px) {
+    .hero-form button {
+        width: 100%;
+    }
+
+    .section-title {
+        width: 95%;
+    }
+
+    .intro p {
+        width: 100%;
+    }
+    
+    .trainer {
+        flex: 0 100%;
+    }
+
+    .contact-info {
+        text-align: center;  
+    }
+
+    .contact-info > * {
+        flex: 0 100%;
+    }
+
+    .contact-form {
+        order: 3;
+    }
 }
