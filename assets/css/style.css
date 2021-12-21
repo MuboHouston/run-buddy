@@ -17,6 +17,20 @@ header {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    /*This is a vender prefix to the sticky header for Safari users. It allows the sticky header to be supported by all browsers, including Safari*/
+    position: -webkit-sticky;
+    /*This makes the header behave relatively until the viewport scrolls past it. Then the elemnet will switch to fixed and remain visible even as the user scrolls farther down the page*/
+    /*Always list the prefix verison first*/
+    position: sticky;
+    /*This tells the browser where to "stick" the element- the very top of the viewport*/
+    top: 0;
+    background-image: url("../images/hero-bg.jpg");
+    background-size: cover;
+    /*This sets the initial position of the image*/
+    background-position: center;
+    /*This allows the background image of the header and hero sections to be in the same place*/
+    background-attachment: fixed;
+    background-position: 80%;
 }
 
 header h1 {
@@ -24,7 +38,7 @@ header h1 {
     font-size: 36px;
     color: #fce138;
     margin: 0;
-    
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 header a {
@@ -49,6 +63,7 @@ header nav ul li a {
     padding: 10px 15px;
     font-weight: lighter;
     font-size: 1.5vw;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 footer {
@@ -89,6 +104,8 @@ section {
     justify-content: center;
     flex-wrap: wrap;
     align-items: flex-start;
+    background-attachment: fixed;
+    background-position: 80%;
 }
 
 .hero-cta {
@@ -104,15 +121,18 @@ section {
     font-style: italic;
     font-size: 55px;
     color: #fce138;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .hero-form {
     border: 3px solid #024e76;
-    background-color: #fce138;
+    background-color: rgba(252, 225, 56, 0.8);
     padding: 20px;
     color: #024e76;
     width: 40%;
     margin: 3.5%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
 }
 
 .hero-form h3 {
@@ -132,6 +152,8 @@ section {
     color: #024e76;
     width: 100%;
     margin-bottom: 15px;
+    /*this adds a rounded corner to all four corners of the elemnent*/
+    border-radius: 10px;
 }
 
 /*This helps the user not misinterpret which selection is for which answer*/
@@ -145,6 +167,8 @@ section {
     color:#fce138;
     border: none;
     font-size: 16px;
+    /*this adds a rounded corner to all four corners of the elemnent*/
+    border-radius: 10px;
 }
 /*Hero section end*/
 
@@ -339,6 +363,8 @@ display: flex;
     width: 100%;
     margin-bottom: 15px;
     margin-top: 5px;
+    /*this adds a rounded corner to all four corners of the elemnent*/
+    border-radius: 10px;
 }
 
 .contact-form button {
@@ -349,6 +375,8 @@ display: flex;
     text-align: center;
     padding: 15px 0;
     font-size: 16px;
+    /*this adds a rounded corner to all four corners of the elemnent*/
+    border-radius: 10px;
 }
 
 .contact-info iframe{
@@ -362,6 +390,7 @@ display: flex;
    header {
        padding-bottom: 0;
        justify-content: center;
+       position: relative;
    }
    
    header h1 {
